@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary"> #F898A4 </color> // this colors the Top Tab ; used
+    <color name="colorPrimaryDark"> #A2ACEB </color> // this colors the Top-most tab ; used
+
+    <color name="colorAccent"> #B4F6A4 </color>
+    <color name="PositiveColor">#e9fbb6 </color>
+
+    <color name="MoodColor" > #6597B1 </color>
+    <color name="ShoppingColor" > #FFB27D   </color>
+
+
+    <color name="MoodTitle"> #5a67f6 </color>
+    <color name="COLOR1"> #F898A4 </color>
+    <color name="COLOR2"> #FCDA9C </color>
+    <color name="COLOR3"> #F7FAA1 </color>
+    <color name="COLOR4"> #B4F6A4 </color>
+    <color name="COLOR5"> #9BE0F1 </color>
+    <color name="COLOR6"> #A2ACEB </color>
+
+
+</resources>

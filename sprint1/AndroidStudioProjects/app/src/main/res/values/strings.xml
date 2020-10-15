@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="app_name">Otherpart</string>
+
+    // Resources for the Menu Page and Options
+    <string name="menu">MENU</string>
+    <string name="option1_text">1) Choose your Mood</string>
+    <string name="option2_text">2) Positive Booster</string>
+    <string name="option3_text">3) Shopping List</string>
+    <string name="option4_text">4) Calendar</string>
+    <string name="option5_text">5) TBA </string>
+
+    // Resources for the Fake Mood Page and Options
+    <string name="mood_title"> How are you feeling today? Select an option: </string>
+    <string name="mood1"> Happy </string>
+    <string name="mood2"> Sad </string>
+    <string name="mood3"> Mad </string>
+
+    // Resources for the Positive Phrases Page
+    <string name="postive_title"> In need of a positive boost? Click Here! </string>
+    <string name="positiveboost"> Boost me! </string>
+
+</resources>
