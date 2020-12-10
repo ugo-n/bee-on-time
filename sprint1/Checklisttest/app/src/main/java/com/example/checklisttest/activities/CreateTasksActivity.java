@@ -1,6 +1,7 @@
-package com.example.checklisttest;
+package com.example.checklisttest.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +15,15 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.checklisttest.R;
+import com.example.checklisttest.databases.TaskListDatabase;
+import com.example.checklisttest.list_items.TaskItem;
+import com.example.checklisttest.list_adapters.TaskItemAdapter;
+
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class CreateTasksActivity extends AppCompatActivity {
     //initialize items present in view
     EditText text; //edittext in which user will input task
     ImageButton addButton; //button user will press to add task
@@ -32,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        /*TaskListDatabase taskDB = Room.databaseBuilder(getApplicationContext(),
+                TaskListDatabase.class, "task_db").build();*/
         listTitle = (TextView) findViewById(R.id.textView);
         intent = getIntent();
         listTitle.setText(intent.getStringExtra("title")); //get title of list from previous activity
@@ -50,10 +58,12 @@ public class MainActivity extends AppCompatActivity {
             for(int i = 0; i < savedInstanceState.getStringArrayList("taskStatus").size(); i++){
                 if(savedInstanceState.getStringArrayList("taskStatus").get(i).equals("T")){
                     savedItems.set(0, new TaskItem(true,
-                            savedInstanceState.getStringArrayList("taskText").get(i)));
+                            savedInstanceState.getStringArrayList("taskText").get(i),
+                            intent.getStringExtra("title")));
                 }else{
                     savedItems.set(0, new TaskItem(false,
-                            savedInstanceState.getStringArrayList("taskText").get(i)));
+                            savedInstanceState.getStringArrayList("taskText").get(i),
+                            intent.getStringExtra("title")));
                 }
             }
             listItems = savedItems;
@@ -66,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
                 if(!text.getText().toString().equals("")) {
-                    TaskItem newTask = new TaskItem(false, text.getText().toString());
+                    TaskItem newTask = new TaskItem(false, text.getText().toString(), intent.getStringExtra("title"));
                     listItems.add(newTask);
                     adapter.notifyDataSetChanged();
                     text.setText("");
@@ -79,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),CreateList.class);
+                Intent i = new Intent(getApplicationContext(), CreateListActivity.class);
                 i.putExtra(listTitle.getText().toString(), listTitle.getText().toString());
                 startActivity(i);
             }
@@ -106,12 +116,12 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> taskText = new ArrayList<String>();
         int size = listItems.size();
         for(int i = 0; i < size; i++){
-            if(listItems.get(i).check){
+            if(listItems.get(i).getCheck()){
                 taskStatus.add("T");
             }else{
                 taskStatus.add("F");
             }
-            taskText.add(listItems.get(i).task);
+            taskText.add(listItems.get(i).getTask());
         }
         savedInstanceState.putStringArrayList("taskStatus", taskStatus);
         savedInstanceState.putStringArrayList("taskText", taskStatus);

@@ -1,4 +1,4 @@
-package com.example.checklisttest;
+package com.example.checklisttest.list_adapters;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import com.example.checklisttest.R;
+import com.example.checklisttest.list_items.TaskItem;
 
 import java.util.ArrayList;
 
@@ -42,12 +44,12 @@ public class TaskItemAdapter extends ArrayAdapter<TaskItem> {
             @Override
             public void onClick(View v) {
                 TaskItem current = getItem(position);
-                if (current.check == false ) {
-                    current.check = true;
+                if (current.getCheck() == false ) {
+                    current.setCheck(true);
                     //crosses text out if task is complete
                     task_input.setPaintFlags(task_input.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 } else {
-                    current.check = false;
+                    current.setCheck(false);
                     //clears strikethrough from text
                     task_input.setPaintFlags(task_input.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
                 }
@@ -64,8 +66,8 @@ public class TaskItemAdapter extends ArrayAdapter<TaskItem> {
         });
 
         assert taskItem != null;
-        toggleButton.setChecked(taskItem.check);
-        task_input.setText(taskItem.task);
+        toggleButton.setChecked(taskItem.getCheck());
+        task_input.setText(taskItem.getTask());
 
         return row;
     }

@@ -1,6 +1,7 @@
-package com.example.checklisttest;
+package com.example.checklisttest.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,13 +12,16 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
+
+import com.example.checklisttest.databases.CheckListDatabase;
+import com.example.checklisttest.list_items.ChecklistItem;
+import com.example.checklisttest.list_adapters.ChecklistItemAdapter;
+import com.example.checklisttest.R;
 
 import java.util.ArrayList;
 
-public class CreateList extends AppCompatActivity {
+public class CreateListActivity extends AppCompatActivity {
     ListView createListView;
     EditText listName;
     Button addListButton;
@@ -29,7 +33,8 @@ public class CreateList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_list);
-
+        CheckListDatabase checkDB = Room.databaseBuilder(getApplicationContext(),
+                CheckListDatabase.class, "checklist_db").build();
         listName = (EditText) findViewById(R.id.nameOfList);
         addListButton = findViewById(R.id.addlistbutton);
         createListView = (ListView) findViewById(R.id.listOfLists);
@@ -57,8 +62,8 @@ public class CreateList extends AppCompatActivity {
                                     long id) {
                 /*String str_item = createListView.getItemAtPosition(position).toString();
                 Toast.makeText(getApplicationContext(), "Clicked"+str_item, Toast.LENGTH_LONG).show();*/
-                Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                i.putExtra("title", listItems.get(position).checklistName);
+                Intent i = new Intent(getApplicationContext(), CreateTasksActivity.class);
+                i.putExtra("title", listItems.get(position).getChecklistName());
                 startActivity(i);
             }
         });
