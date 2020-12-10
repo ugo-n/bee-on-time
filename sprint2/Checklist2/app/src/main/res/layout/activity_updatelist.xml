@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Updatelist">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="Edit List Name"
+        android:textColor="@color/darkbrown"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/newname"
+        android:layout_width="335dp"
+        android:layout_height="52dp"
+        android:ems="10"
+        android:hint="Type here..."
+        android:textColor="@color/darkbrown"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/confirm_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <Button
+        android:id="@+id/confirm_btn"
+        android:layout_width="214dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="23dp"
+        android:background="@color/darkbrown"
+        android:text="Confirm"
+        android:textColor="@color/lightyellow"
+        app:layout_constraintBottom_toTopOf="@+id/cancel_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newname"
+        app:layout_constraintVertical_bias="0.528" />
+
+    <Button
+        android:id="@+id/cancel_btn"
+        android:layout_width="214dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="276dp"
+        android:background="@color/darkbrown"
+        android:text="Cancel"
+        android:textColor="@color/lightyellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
