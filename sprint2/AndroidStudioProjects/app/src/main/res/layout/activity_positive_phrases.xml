@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PositivePhrases"
+    android:background ="@drawable/positivebeepgtwo"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:text="@string/postive_title"
+        android:textColor="@color/black"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/positivebutton"
+        android:layout_width="match_parent"
+        android:layout_height="264dp"
+
+        android:layout_below="@+id/beeimagev1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="64dp"
+
+        android:background="@color/boostButton"
+        android:gravity="center"
+        android:text="@string/positiveboost"
+        android:textColor="@color/PositiveColor"
+        android:textSize="30sp" />
+
+    <ImageView
+
+        android:id="@+id/beeimagev1"
+        android:layout_width="392dp"
+        android:layout_height="228dp"
+        android:layout_below="@+id/textQuestion"
+        android:layout_marginTop="41dp"
+        app:srcCompat="@drawable/beeblackim" />
+
+    <ImageView
+
+        android:id="@+id/beeimagev2"
+        android:layout_width="392dp"
+        android:layout_height="228dp"
+        android:layout_below="@+id/textQuestion"
+        android:layout_marginTop="41dp"
+        app:srcCompat="@drawable/beehappy"
+        android:visibility="invisible"/>
+
+
+
+
+</RelativeLayout>
